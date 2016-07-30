@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @titulo = "Estamos en la página principal"
+   
+   flash[:noticia]= "Tengo una noticia"
+   redirect_to :action => :contacto , :id => ["pedro","juan","alberto"] 
+   
   end
 
   def quienes_somos
@@ -8,6 +11,7 @@ class HomeController < ApplicationController
   end
 
   def contacto
-    @titulo = "Estamos en la página contacto"
+    @nombre = params[:id]
+    @titulo = "Estamos en la página contacto y me llamo"
   end
 end
